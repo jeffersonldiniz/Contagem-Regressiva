@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retorno Jeff</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        #contador {
+            font-size: 24px;
+            margin-top: 50px;
+        }
+        #JeffBe {
+            width: 300px; /* Defina a largura desejada para a imagem */
+            height: auto; /* Isso permite que a altura da imagem seja ajustada automaticamente */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Retorno Jeff</h1>
+    <div id="contador"></div>
+    <img id="JeffBe" src="C:\Users\jeffe\OneDrive\Imagens/JeffBe.jpeg" alt="Descrição da Imagem">
+
+    <script>
+        // JavaScript para a contagem regressiva
+        var dataAlvo = new Date('2024-09-30T23:59:59').getTime();
+
+        var x = setInterval(function() {
+            var agora = new Date().getTime();
+            var diferenca = dataAlvo - agora;
+
+            var dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            var horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            var segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            document.getElementById('contador').innerHTML = dias + " dias " + horas + " horas "
+            + minutos + " minutos " + segundos + " segundos ";
+
+            if (diferenca < 0) {
+                clearInterval(x);
+                document.getElementById('contador').innerHTML = "EXPIRADO";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
