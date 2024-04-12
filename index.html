@@ -10,7 +10,7 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            background-color: purple; /* Set the background color to pink */
+            background-color: Orchid; /* Set the background color to pink */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -27,22 +27,41 @@
             width: 100%;
             padding: 20px;
         }
+        h1 {
+            color: black; /* Change the color of the title to black */
+        }
         .counter {
-            font-size: 36px;
+            font-size: 25px;
             margin-top: 20px;
+            color: indigo;
         }
         #contador2 {
-            color: black; /* Color for the second counter */
+            color: indigo; /* Color for the second counter */
         }
         #JeffBe {
             width: 300px;
             height: auto;
             margin-top: 20px;
         }
-        .cute-stuff {
-            flex: 1;
-            background-color: pink; /* Adjust color as needed */
-            width: 50px; /* Adjust width as needed */
+        .progress {
+            width: 50%;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 30px;
+            background-color: purple; /* Color of the progress bar */
+            border-radius: 10px;
+            position: relative; /* Add position relative for positioning the percentage */
+        }
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
         }
     </style>
 </head>
@@ -53,8 +72,14 @@
         <div class="cute-stuff"></div>
     </header>
     <div id="contador" class="counter"></div> <!-- Changed the ID to "contador" -->
+    <img id="JeffBe" src="/home/jefferson/Downloads/JeffBe.jpeg" alt="Descrição da Imagem">
     <div id="contador2" class="counter"></div> <!-- Added the ID "contador2" -->
-    <img id="JeffBe" src="/Contagem-Regressiva/JeffBe.jpeg" alt="Descrição da Imagem">
+    <!-- Added the progress bar -->
+    <div class="progress">
+        <div class="progress-bar" id="progressBar">
+            <div class="progress-text">0%</div> <!-- Added the progress text -->
+        </div>
+    </div>
     <footer>
         <div class="cute-stuff"></div>
         <p>&copy; 2024 Jeff e Bê. Todos os direitos reservados.</p>
@@ -62,27 +87,27 @@
     </footer>
 
     <script>
-
         // JavaScript for Countdown since April 1st
-        var dataInicial = new Date('2024-04-01T09:00:00').getTime();
+        var dataInicial = new Date('2024-04-01T00:00:00').getTime();
+        var dataAlvo = new Date('2024-09-30T00:00:00').getTime();
 
         var y = setInterval(function() {
             var agora = new Date().getTime();
-            var diferenca = agora - dataInicial;
+            var diferencaTotal = dataAlvo - dataInicial;
+            var diferencaAtual = agora - dataInicial;
+            var progress = (diferencaAtual / diferencaTotal) * 100;
 
-            var dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-            var horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-            var segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+            // Update the progress bar
+            document.getElementById('progressBar').style.width = progress + "%";
+            document.querySelector('.progress-text').textContent = progress.toFixed(2) + "%"; // Update the progress text
 
-            document.getElementById('contador2').innerHTML = "Se passaram " + dias + " dias " + horas + " horas " // Corrected the string concatenation
-            + minutos + " minutos " + segundos + " segundos ";
-
+            if (diferencaAtual < 0) {
+                clearInterval(y);
+                document.getElementById('contador').innerHTML = "TO CHEGANDO";
+            }
         }, 1000);
         
         // JavaScript for Countdown to September 30th
-        var dataAlvo = new Date('2024-09-30T00:00:00').getTime();
-
         var x = setInterval(function() {
             var agora = new Date().getTime();
             var diferenca = dataAlvo - agora;
@@ -100,8 +125,6 @@
                 document.getElementById('contador').innerHTML = "TO CHEGANDO";
             }
         }, 1000);
-        
-
     </script>
 </body>
 </html>
