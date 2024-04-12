@@ -32,7 +32,7 @@
             margin-top: 20px;
         }
         #contador2 {
-            color: green; /* Color for the second counter */
+            color: black; /* Color for the second counter */
         }
         #JeffBe {
             width: 300px;
@@ -62,6 +62,24 @@
     </footer>
 
     <script>
+
+        // JavaScript for Countdown since April 1st
+        var dataInicial = new Date('2024-04-01T09:00:00').getTime();
+
+        var y = setInterval(function() {
+            var agora = new Date().getTime();
+            var diferenca = agora - dataInicial;
+
+            var dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            var horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            var segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            document.getElementById('contador2').innerHTML = "Se passaram " + dias + " dias " + horas + " horas " // Corrected the string concatenation
+            + minutos + " minutos " + segundos + " segundos ";
+
+        }, 1000);
+        
         // JavaScript for Countdown to September 30th
         var dataAlvo = new Date('2024-09-30T00:00:00').getTime();
 
@@ -83,22 +101,7 @@
             }
         }, 1000);
         
-        // JavaScript for Countdown since April 1st
-        var dataInicial = new Date('2022-04-01T09:00:00').getTime();
 
-        var y = setInterval(function() {
-            var agora = new Date().getTime();
-            var diferenca = agora - dataInicial;
-
-            var dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-            var horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-            var segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
-
-            document.getElementById('contador2').innerHTML = "Se passaram " + dias + " dias " + horas + " horas " // Corrected the string concatenation
-            + minutos + " minutos " + segundos + " segundos ";
-
-        }, 1000);
     </script>
 </body>
 </html>
