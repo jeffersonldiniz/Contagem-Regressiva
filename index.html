@@ -73,7 +73,7 @@
             var minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
             var segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
 
-            document.getElementById('contador').innerHTML = dias + " dias " + horas + " horas "
+            document.getElementById('contador').innerHTML = "Restam" dias + " dias " + horas + " horas "
             + minutos + " minutos " + segundos + " segundos ";
 
             if (diferenca < 0) {
@@ -94,7 +94,7 @@
             var minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
             var segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
 
-            document.getElementById('contador2').innerHTML = dias + " dias " + horas + " horas "
+            document.getElementById('contador2').innerHTML = "Se passaram" dias + " dias " + horas + " horas "
             + minutos + " minutos " + segundos + " segundos ";
 
         }, 1000);
