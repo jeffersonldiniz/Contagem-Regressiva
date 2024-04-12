@@ -78,6 +78,23 @@
                 document.getElementById('contador').innerHTML = "TO CHEGANDO";
             }
         }, 1000);
+        
+        // JavaScript para a contagem dos dias
+        var dataInicial = new Date('2022-04-01T00:00:00').getTime();
+
+        var y = setInterval(function() {
+            var agora = new Date().getTime();
+            var diferenca = agora - dataInicial;
+
+            var dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            var horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            var segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            document.getElementById('contador2').innerHTML = dias + " dias " + horas + " horas "
+            + minutos + " minutos " + segundos + " segundos ";
+
+        }, 1000);
     </script>
 </body>
 </html>
