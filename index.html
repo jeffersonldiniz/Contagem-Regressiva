@@ -10,6 +10,21 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 20px;
+        }
+        footer {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 20px;
         }
         #contador {
             font-size: 24px;
@@ -20,13 +35,26 @@
             height: auto;
             margin-top: 20px;
         }
+        .cute-stuff {
+            flex: 1;
+            background-color: pink; /* Adjust color as needed */
+            width: 50px; /* Adjust width as needed */
+        }
     </style>
 </head>
 <body>
-    <h1>Retorno Jeff &#x2764;&#xFE0F;</h1>
+    <header>
+        <div class="cute-stuff"></div>
+        <h1>Retorno Jeff &#x2764;&#xFE0F;</h1>
+        <div class="cute-stuff"></div>
+    </header>
     <div id="contador"></div>
     <img id="JeffBe" src="/Contagem-Regressiva/JeffBe.jpeg" alt="Descrição da Imagem">
-   
+    <footer>
+        <div class="cute-stuff"></div>
+        <p>&copy; 2024 Retorno Jeff. Todos os direitos reservados.</p>
+        <div class="cute-stuff"></div>
+    </footer>
 
     <script>
         // JavaScript para a contagem regressiva
