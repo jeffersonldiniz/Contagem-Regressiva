@@ -27,9 +27,9 @@
             width: 100%;
             padding: 20px;
         }
-        #contador {
+        .counter {
             font-size: 36px;
-            margin-top: 50px;
+            margin-top: 20px;
         }
         #contador2 {
             color: green; /* Color for the second counter */
@@ -52,7 +52,8 @@
         <h1>Retorno Jeff &#x2764;&#xFE0F;</h1>
         <div class="cute-stuff"></div>
     </header>
-    <div id="contador"></div>
+    <div id="contador" class="counter"></div> <!-- Changed the ID to "contador" -->
+    <div id="contador2" class="counter"></div> <!-- Added the ID "contador2" -->
     <img id="JeffBe" src="/Contagem-Regressiva/JeffBe.jpeg" alt="Descrição da Imagem">
     <footer>
         <div class="cute-stuff"></div>
@@ -61,7 +62,7 @@
     </footer>
 
     <script>
-        // JavaScript para a contagem regressiva
+        // JavaScript for Countdown to September 30th
         var dataAlvo = new Date('2024-09-30T00:00:00').getTime();
 
         var x = setInterval(function() {
@@ -73,7 +74,7 @@
             var minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
             var segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
 
-            document.getElementById('contador').innerHTML = "Restam" dias + " dias " + horas + " horas "
+            document.getElementById('contador').innerHTML = "Restam " + dias + " dias " + horas + " horas " // Corrected the string concatenation
             + minutos + " minutos " + segundos + " segundos ";
 
             if (diferenca < 0) {
@@ -82,7 +83,7 @@
             }
         }, 1000);
         
-        // JavaScript para a contagem dos dias
+        // JavaScript for Countdown since April 1st
         var dataInicial = new Date('2022-04-01T09:00:00').getTime();
 
         var y = setInterval(function() {
@@ -94,7 +95,7 @@
             var minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
             var segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
 
-            document.getElementById('contador2').innerHTML = "Se passaram" dias + " dias " + horas + " horas "
+            document.getElementById('contador2').innerHTML = "Se passaram " + dias + " dias " + horas + " horas " // Corrected the string concatenation
             + minutos + " minutos " + segundos + " segundos ";
 
         }, 1000);
